@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jonny's Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+    header {
+      background: #0073b1; 
+      color: #fff;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    header p {
+      margin: 10px 0 0;
+      font-size: 1.1em;
+    }
+    nav {
+      text-align: center;
+      margin: 20px 0;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #0073b1;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      padding: 50px 20px;
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+    h2, h3 {
+      color: #0073b1;
+      margin-bottom: 20px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 12px;
+      font-size: 1.1em;
+    }
+    li i {
+      color: #0073b1;
+      margin-right: 10px;
+    }
+    .projects a {
+      display: inline-block;
+      background: #0073b1;
+      color: #fff;
+      padding: 10px 15px;
+      margin: 5px 5px 0 0;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .projects a:hover {
+      background: #005582;
+    }
+    .contact a.button {
+      display: inline-block;
+      background: #0073b1;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 10px;
+      transition: background 0.3s;
+    }
+    .contact a.button:hover {
+      background: #005582;
+    }
+    .profile-preview {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      margin: 15px auto;
+      border: 3px solid #0073b1;
+    }
+    .upload-btn {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      background: #0073b1;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .upload-btn:hover {
+      background: #005582;
+    }
+    .experience-item {
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #0073b1;
+      border-radius: 5px;
+    }
+    .experience-item input[type="text"] {
+      width: 60%;
+      margin-right: 10px;
+    }
+    .experience-item span {
+      font-style: italic;
+      color: #555;
+      margin-left: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    th, td {
+      border: 1px solid #0073b1;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #0073b1;
+      color: #fff;
+    }
+    input[type="text"] {
+      width: 100%;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Jonny</h1>
+  <p>Data Collection Supervisor | Qualitative Research | Translation & Transcription</p>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#experience">Experience</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+  <h2>About Me</h2>
+  <img id="profilePreview" class="profile-preview" src="https://via.placeholder.com/150" alt="Profile Picture">
+  <input type="file" id="profileUpload" accept="image/*" style="display:none;">
+  <button class="upload-btn" onclick="document.getElementById('profileUpload').click()">Upload Profile Picture</button>
+  <p>Hello! I am Jonny, a skilled data collection supervisor and qualitative researcher with experience in translation and transcription. I am passionate about producing accurate, high-quality research data and supporting research teams to succeed.</p>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <ul>
+    <li><i class="fas fa-check-circle"></i>Data Collection Supervision</li>
+    <li><i class="fas fa-check-circle"></i>Qualitative Research (FGDs & Interviews)</li>
+    <li><i class="fas fa-check-circle"></i>Translation & Transcription (English & Somali)</li>
+    <li><i class="fas fa-check-circle"></i>Project Coordination & Reporting</li>
+    <li><i class="fas fa-check-circle"></i>Documentation & Analysis</li>
+  </ul>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+  
+  <!-- Dynamic Experience Upload Section -->
+  <div id="experienceList"></div>
+  <button class="upload-btn" onclick="addExperience()">Add Experience</button>
+
+  <hr style="margin:40px 0; border:1px solid #0073b1;">
+
+  <!-- Professional Experience Table -->
+  <h3>Professional Experience</h3>
+  <table id="professionalExperience">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Region</th>
+        <th>Company</th>
+        <th>Position</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <button class="upload-btn" onclick="addProfessionalExperienceRow()">Add Row</button>
+</section>
+
+<section id="projects">
+  <h2>Projects / Samples</h2>
+  <div class="projects">
+    <a href="#" target="_blank">Survey Data Report</a>
+    <a href="#" target="_blank">Qualitative Interview Transcript</a>
+    <a href="#" target="_blank">Translation Sample</a>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: <a href="mailto:yohannesbelachew143@gamail.com">yohannesbelachew143@gamail.com</a></p>
+  <p>Phone: <a href="tel:+251923783062">+251 923 783 062</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/yohannes-belachew-8b1167225" target="_blank">My LinkedIn Profile</a></p>
+  <a class="button" href="https://www.linkedin.com/in/yohannes-belachew-8b1167225" target="_blank">
+    <i class="fab fa-linkedin"></i> View My LinkedIn
+  </a>
+</section>
+
+<script>
+  // Profile picture upload preview
+  const uploadInput = document.getElementById('profileUpload');
+  const previewImg = document.getElementById('profilePreview');
+
+  uploadInput.addEventListener('change', () => {
+    const file = uploadInput.files[0];
+    if(file){
+      previewImg.src = URL.createObjectURL(file);
+    }
+  });
+
+  // Dynamic experience section
+  const experienceList = document.getElementById('experienceList');
+  function addExperience() {
+    const expDiv = document.createElement('div');
+    expDiv.className = 'experience-item';
+    
+    const jobInput = document.createElement('input');
+    jobInput.type = 'text';
+    jobInput.placeholder = 'Job Title or Description';
+    
+    const fileInput = document.createElement('input');
+    fileInput.type = 'file';
+    fileInput.accept=".pdf,.doc,.docx,.jpg,.png";
+    
+    const label = document.createElement('span');
+
+    fileInput.addEventListener('change', () => {
+      const fileName = fileInput.files[0]?.name;
+      if(fileName){
+        label.textContent = `Uploaded: ${fileName}`;
+      }
+    });
+
+    expDiv.appendChild(jobInput);
+    expDiv.appendChild(fileInput);
+    expDiv.appendChild(label);
+
+    experienceList.appendChild(expDiv);
+  }
+
+  // Professional Experience Table
+  const profExpTable = document.getElementById('professionalExperience').getElementsByTagName('tbody')[0];
+
+  function addProfessionalExperienceRow() {
+    const row = document.createElement('tr');
+    ['Date', 'Region', 'Company', 'Position'].forEach(() => {
+      const td = document.createElement('td');
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.placeholder = 'Enter here';
+      td.appendChild(input);
+      row.appendChild(td);
+    });
+    profExpTable.appendChild(row);
+  }
+</script>
+
+</body>
+</html>
